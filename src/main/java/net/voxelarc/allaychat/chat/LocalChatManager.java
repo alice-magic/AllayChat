@@ -534,7 +534,7 @@ public class LocalChatManager implements ChatManager {
 
             component = component.clickEvent(ClickEvent.clickEvent(ClickEvent.Action.RUN_COMMAND, "/allay inventory %s".formatted(uuid)));
             component = component.hoverEvent(ChatUtils.format(
-                    plugin.getReplacementConfig().getString("enderchest.hover"),
+                    plugin.getReplacementConfig().getString("shulker.hover"),
                     Placeholder.unparsed("player", player.getName())
             ));
 
