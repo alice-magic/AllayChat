@@ -8,6 +8,7 @@ import net.voxelarc.allaychat.api.util.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -18,7 +19,7 @@ public class LocalPlayerManager implements PlayerManager {
 
     @Override
     public Set<String> getAllPlayers() {
-        return Bukkit.getOnlinePlayers()
+        return new HashSet<>(Bukkit.getOnlinePlayers())
                 .stream()
                 .map(Player::getName)
                 .collect(Collectors.toSet());
