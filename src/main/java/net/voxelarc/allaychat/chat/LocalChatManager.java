@@ -177,6 +177,23 @@ public class LocalChatManager implements ChatManager {
         return component;
     }
 
+    public Component formatConnectionMessage(Player player, String type) {
+        if (!plugin.getFormatConfig().getBoolean("connection.enabled", false)) {
+            return null;
+        }
+
+        String format = plugin.getFormatConfig().getString(type);
+        if (format == null || format.isEmpty()) {
+            return null;
+        }
+
+        return ChatUtils.format(
+                PlaceholderAPI.setPlaceholders(player, format),
+                Placeholder.unparsed("player_name", player.getName()),
+                ChatUtils.papiTag(player)
+        );
+    }
+
     @Override
     public boolean handleMessage(Player player, String message) {
         for (ChatFilter filter : plugin.getFilters()) {
