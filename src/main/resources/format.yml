@@ -2,6 +2,12 @@
 # %your_placeholder%
 # you can also use legacy formatting codes like &c, &6, &l, etc.
 
+# Customize join/leave messages
+connection:
+  enabled: true # Set to "false" to use default messages
+  join: "<#38ff38>→ %player_name% joined"
+  leave: "<#ff3838>← %player_name% left"
+
 format:
   # If no group was found for the player, this format will be used.
   default:
