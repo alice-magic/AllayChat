@@ -1,9 +1,7 @@
 ## What is AllayChat?
 
-🔰 AllayChat is a modern & powerful chat plugin for PaperMC (and it's forks).\
+🔰 AllayChat is a modern & powerful chat plugin for PaperMC and Folia (and their forks).\
 It allows server owners to create custom chat filters, formats, placeholders and more.
-
-_(Folia support is planned but not implemented yet.)_
 
 ⚠️ Allay does not support chat channels.\
 I have no plans to add it in the future either.\
