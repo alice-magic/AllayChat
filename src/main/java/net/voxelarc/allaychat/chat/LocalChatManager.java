@@ -346,12 +346,10 @@ public class LocalChatManager implements ChatManager {
             ChatUtils.sendMessage(player, spyComponent);
         });
 
-        Player targetPlayer = Bukkit.getPlayerExact(target.getName());
         String soundName = plugin.getPrivateMessageConfig().getString("sound");
         if (soundName != null && !soundName.isEmpty()) {
             Sound sound = Sound.sound(Key.key(soundName), Sound.Source.MASTER, 1.0f, 1.0f);
-            assert targetPlayer != null;
-            targetPlayer.playSound(sound);
+            target.playSound(sound);
         }
 
         return true;
