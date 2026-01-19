@@ -17,3 +17,5 @@ messages:
 
   disabled: "<prefix> <red>Since you don't accept private messages, you can't send one."
   disabled-other: "<prefix> <red><player> does not accept private messages."
+
+  empty-message: "<prefix> <red>Can not send an empty message."

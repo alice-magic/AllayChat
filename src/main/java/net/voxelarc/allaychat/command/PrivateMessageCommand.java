@@ -8,6 +8,7 @@ import dev.triumphteam.cmd.core.annotation.Join;
 import dev.triumphteam.cmd.core.annotation.Suggestion;
 import lombok.RequiredArgsConstructor;
 import net.voxelarc.allaychat.AllayChatPlugin;
+import net.voxelarc.allaychat.api.util.ChatUtils;
 import org.bukkit.entity.Player;
 
 @RequiredArgsConstructor
@@ -19,6 +20,14 @@ public class PrivateMessageCommand extends BaseCommand {
     @Default
     @Permission("allaychat.command.msg")
     public void onMessage(Player player, @Suggestion("online-players") String target, @Join String message) {
+        if (message == null || message.isBlank()) {
+            ChatUtils.sendMessage(player, ChatUtils.format(
+                    plugin.getMessagesConfig().getString("messages.empty-message",
+                            "Could not find key in msg.yml: messages.empty-message")
+            ));
+            return;
+        }
+
         plugin.getChatManager().handlePrivateMessage(player, target, message);
     }
 
