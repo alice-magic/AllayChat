@@ -23,6 +23,8 @@ public class RegexFilter implements ChatFilter {
 
     @Override
     public void onEnable() {
+        patterns.clear();
+
         enabled = plugin.getFilterConfig().getBoolean("regex.enabled");
 
         blockedMessage = ChatUtils.format(plugin.getFilterConfig().getString("regex.message"));
