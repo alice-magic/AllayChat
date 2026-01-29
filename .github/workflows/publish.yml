@@ -1,0 +1,39 @@
+name: Publish to Nexus
+
+on:
+  push:
+    branches:
+      - master
+      - main
+    # Only publish when the version changes or on a tag
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: "21"
+          distribution: "temurin"
+          # This helps with caching dependencies for faster builds
+          cache: "gradle"
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Publish with Gradle
+        run: ./gradlew publish
+        env:
+          # These link your GitHub Secrets to the System.getenv() in your build.gradle
+          VOXELARC_REPO_USERNAME: ${{ secrets.VOXELARC_REPO_USERNAME }}
+          VOXELARC_REPO_PASSWORD: ${{ secrets.VOXELARC_REPO_PASSWORD }}
