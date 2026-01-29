@@ -8,6 +8,14 @@ domain:
   enabled: true
   message: "<prefix> <red>You can not send domains in the chat."
 
+minimessage:
+  enabled: true
+  # should we block ALL the minimessage tags? (including color tags).
+  # if disabled, we only block a select few such as: click, hover, etc.
+  # however, I recommend you keep this true
+  block-all: true
+  message: "<prefix> <red>You can not send MiniMessage tags."
+
 phone:
   enabled: true
   message: "<prefix> <red>You can not send phone numbers."

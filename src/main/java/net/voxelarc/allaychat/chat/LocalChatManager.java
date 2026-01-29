@@ -202,7 +202,7 @@ public class LocalChatManager implements ChatManager {
                 Component component = ChatUtils.format(
                         plugin.getMessagesConfig().getString("messages.message-cancelled-operator"),
                         Placeholder.unparsed("player", player.getName()),
-                        Placeholder.unparsed("message", ChatUtils.removeColorCodes(message)),
+                        Placeholder.unparsed("message", ChatUtils.MINI_MESSAGE.stripTags(ChatUtils.removeColorCodes(message))), // strip here too so staff does not click accidentally
                         Placeholder.unparsed("flag", filter.getClass().getSimpleName()
                                 .replace("Filter", "").toUpperCase())
                 );
@@ -314,19 +314,19 @@ public class LocalChatManager implements ChatManager {
                 plugin.getPrivateMessageConfig().getString("messages.spy"),
                 Placeholder.unparsed("from", from.getName()),
                 Placeholder.unparsed("to", to),
-                Placeholder.unparsed("message", message)
+                Placeholder.unparsed("message", ChatUtils.MINI_MESSAGE.stripTags(message))
         );
 
         Component msgTarget = ChatUtils.format(
                 plugin.getPrivateMessageConfig().getString("messages.format-target"),
                 Placeholder.unparsed("player", from.getName()),
-                Placeholder.unparsed("message", message)
+                Placeholder.unparsed("message", ChatUtils.MINI_MESSAGE.stripTags(message))
         );
 
         Component msgSender = ChatUtils.format(
                 plugin.getPrivateMessageConfig().getString("messages.format-self"),
                 Placeholder.unparsed("player", target.getName()),
-                Placeholder.unparsed("message", message)
+                Placeholder.unparsed("message", ChatUtils.MINI_MESSAGE.stripTags(message))
         );
 
         ChatUtils.sendMessage(target, msgTarget);

@@ -166,6 +166,7 @@ public final class AllayChatPlugin extends AllayChat {
         addFilter(new PhoneFilter(this));
         addFilter(new RegexFilter(this));
         addFilter(new SimilarityFilter(this));
+        addFilter(new MiniMessageFilter(this));
 
         for (ChatFilter filter : getFilters()) {
             filter.onEnable();
