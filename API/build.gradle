@@ -36,7 +36,7 @@ publishing {
     repositories {
         maven {
             name = "voxelarcSnapshots"
-            url = uri("https://repo.voxelarc.net/snapshots")
+            url = uri("https://repo.furi.moe/snapshots")
             credentials {
                 username = System.getenv("VOXELARC_REPO_USERNAME")
                 password = System.getenv("VOXELARC_REPO_PASSWORD")
@@ -44,7 +44,7 @@ publishing {
         }
         maven {
             name = "voxelarcReleases"
-            url = uri("https://repo.voxelarc.net/releases")
+            url = uri("https://repo.furi.moe/releases")
             credentials {
                 username = System.getenv("VOXELARC_REPO_USERNAME")
                 password = System.getenv("VOXELARC_REPO_PASSWORD")
