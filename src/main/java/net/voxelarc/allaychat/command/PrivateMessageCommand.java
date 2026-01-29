@@ -22,7 +22,7 @@ public class PrivateMessageCommand extends BaseCommand {
     public void onMessage(Player player, @Suggestion("online-players") String target, @Join String message) {
         if (message == null || message.isBlank()) {
             ChatUtils.sendMessage(player, ChatUtils.format(
-                    plugin.getMessagesConfig().getString("messages.empty-message",
+                    plugin.getPrivateMessageConfig().getString("messages.empty-message",
                             "Could not find key in msg.yml: messages.empty-message")
             ));
             return;
