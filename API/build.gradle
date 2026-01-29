@@ -25,18 +25,11 @@ dependencies {
 }
 
 publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-
-            groupId 'net.voxelarc.allaychat'
-            artifactId 'api'
-        }
-    }
     repositories {
         maven {
             name = "voxelarcSnapshots"
-            url = uri("https://repo.furi.moe/snapshots")
+            // FIX: Add "/repository/" and the exact name of your hosted snapshot repo
+            url = uri("https://repo.furi.moe/repository/voxelarc-snapshots/")
             credentials {
                 username = System.getenv("VOXELARC_REPO_USERNAME")
                 password = System.getenv("VOXELARC_REPO_PASSWORD")
@@ -44,7 +37,8 @@ publishing {
         }
         maven {
             name = "voxelarcReleases"
-            url = uri("https://repo.furi.moe/releases")
+            // FIX: Add "/repository/" and the exact name of your hosted release repo
+            url = uri("https://repo.furi.moe/repository/voxelarc-releases/")
             credentials {
                 username = System.getenv("VOXELARC_REPO_USERNAME")
                 password = System.getenv("VOXELARC_REPO_PASSWORD")
